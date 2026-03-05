@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YYC Homecare Services — Paramedic-Founded Home Care for Alberta Families</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #4A5568;
+      background-color: #FAFAF8;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.25s ease;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ============================================================
+       DESIGN TOKENS
+       ============================================================ */
+    :root {
+      --teal: #1A6B6B;
+      --teal-dark: #145555;
+      --teal-light: #e6f2f2;
+      --sand: #F5EFE6;
+      --amber: #D4820A;
+      --amber-hover: #b86f08;
+      --slate: #4A5568;
+      --slate-light: #718096;
+      --off-white: #FAFAF8;
+      --white: #ffffff;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 14px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 30px rgba(0,0,0,0.10);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+      --transition: 0.3s ease;
+    }
+
+    /* ============================================================
+       UTILITY
+       ============================================================ */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-subtext {
+      font-size: 17px;
+      color: var(--slate-light);
+      max-width: 640px;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: var(--radius-full);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-amber {
+      background-color: var(--amber);
+      color: var(--white);
+      border-color: var(--amber);
+    }
+
+    .btn-amber:hover {
+      background-color: var(--amber-hover);
+      border-color: var(--amber-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 130, 10, 0.3);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--teal);
+      border-color: var(--teal);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--teal);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .btn-white-outline {
+      background-color: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .btn-white-outline:hover {
+      background-color: var(--white);
+      color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .btn-white {
+      background-color: var(--white);
+      color: var(--teal);
+      border-color: var(--white);
+    }
+
+    .btn-white:hover {
+      background-color: var(--sand);
+      border-color: var(--sand);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255,255,255,0.25);
+    }
+
+    /* ============================================================
+       1. TOP BAR
+       ============================================================ */
+    .top-bar {
+      background-color: var(--teal);
+      color: rgba(255,255,255,0.9);
+      font-size: 13px;
+      padding: 10px 0;
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .top-bar-left a {
+      color: rgba(255,255,255,0.9);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .top-bar-left a:hover {
+      color: var(--white);
+    }
+
+    .top-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 500;
+    }
+
+    .top-bar-stars {
+      color: var(--amber);
+      letter-spacing: 1px;
+    }
+
+    /* ============================================================
+       2. NAVIGATION
+       ============================================================ */
+    .navbar {
+      background-color: var(--white);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background-color: var(--teal);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .logo-text span {
+      color: var(--amber);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--slate);
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--amber);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      margin-left: 8px;
+    }
+
+    .nav-cta .btn {
+      padding: 10px 22px;
+      font-size: 14px;
+    }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--teal);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    /* ============================================================
+       3. HERO SECTION
+       ============================================================ */
+    .hero {
+      background: linear-gradient(135deg, var(--sand) 0%, #eee8dc 50%, var(--teal-light) 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 80px 0 100px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(26,107,107,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,130,10,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 580px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(26,107,107,0.08);
+      border: 1px solid rgba(26,107,107,0.15);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 24px;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--amber);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero-sub {
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 500;
+      color: var(--amber);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image-placeholder {
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 4 / 3;
+      background: linear-gradient(135deg, rgba(26,107,107,0.08) 0%, rgba(26,107,107,0.15) 100%);
+      border-radius: var(--radius-lg);
+      border: 2px dashed rgba(26,107,107,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--teal);
+    }
+
+    .hero-image-placeholder svg {
+      opacity: 0.4;
+    }
+
+    .hero-image-placeholder span {
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.5;
+    }
+
+    /* ============================================================
+       4. TRUST BAR
+       ============================================================ */
+    .trust-bar {
+      background-color: var(--white);
+      border-top: 1px solid rgba(26,107,107,0.08);
+      border-bottom: 1px solid rgba(26,107,107,0.08);
+      padding: 0;
+    }
+
+    .trust-bar-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 24px 20px;
+      border-right: 1px solid rgba(26,107,107,0.08);
+      transition: background-color var(--transition);
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-item:hover {
+      background-color: var(--teal-light);
+    }
+
+    .trust-icon {
+      width: 44px;
+      height: 44px;
+      background-color: var(--teal-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .trust-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--teal);
+      line-height: 1.4;
+    }
+
+    .trust-text small {
+      display: block;
+      font-weight: 400;
+      color: var(--slate-light);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    /* ============================================================
+       5. SERVICES GRID
+       ============================================================ */
+    .services {
+      padding: 100px 0;
+      background-color: var(--off-white);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .services-header .section-subtext {
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .service-card {
+      background-color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      border: 1px solid rgba(26,107,107,0.06);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(26,107,107,0.12);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--teal-light) 0%, rgba(26,107,107,0.12) 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .service-icon svg {
+      width: 28px;
+      height: 28px;
+      color: var(--teal);
+    }
+
+    .service-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      font-size: 15px;
+      color: var(--slate-light);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .service-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--amber);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+    }
+
+    .service-link:hover {
+      gap: 10px;
+      color: var(--amber-hover);
+    }
+
+    .services-all {
+      text-align: center;
+    }
+
+    .services-all a {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--teal);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--teal);
+      transition: all var(--transition);
+    }
+
+    .services-all a:hover {
+      background-color: var(--teal);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       6. FOUNDER SECTION
+       ============================================================ */
+    .founder {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+
+    .founder .container {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .founder-image-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .founder-image {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      border: 4px solid var(--teal);
+      background: linear-gradient(135deg, var(--teal-light) 0%, rgba(26,107,107,0.12) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--teal);
+      position: relative;
+      box-shadow: 0 0 0 12px rgba(26,107,107,0.06);
+    }
+
+    .founder-image svg {
+      opacity: 0.35;
+    }
+
+    .founder-image span {
+      font-size: 13px;
+      font-weight: 500;
+      opacity: 0.4;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .founder-name-below {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--teal);
+      text-align: center;
+    }
+
+    .founder-title-below {
+      font-size: 14px;
+      color: var(--slate-light);
+      text-align: center;
+      margin-top: -12px;
+    }
+
+    .founder-content h2 {
+      font-size: clamp(28px, 3.5vw, 38px);
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .founder-content p {
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .credential-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .credential-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background-color: var(--teal-light);
+      border: 1px solid rgba(26,107,107,0.12);
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .credential-tag svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       7. HOW IT WORKS
+       ============================================================ */
+    .how-it-works {
+      padding: 100px 0;
+      background-color: var(--off-white);
+    }
+
+    .how-it-works-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .how-it-works-header .section-subtext {
+      margin: 0 auto;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: calc(16.66% + 20px);
+      right: calc(16.66% + 20px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), rgba(26,107,107,0.3), var(--teal));
+      z-index: 0;
+    }
+
+    .step-card {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(26,107,107,0.25);
+    }
+
+    .step-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    .step-card p {
+      font-size: 15px;
+      color: var(--slate-light);
+      line-height: 1.6;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       8. FUNDED CARE (CDHCI / VIP)
+       ============================================================ */
+    .funded-care {
+      padding: 100px 0;
+      background-color: var(--sand);
+    }
+
+    .funded-care-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .funded-care-header .section-subtext {
+      margin: 0 auto;
+    }
+
+    .funded-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .funded-card {
+      background-color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      border: 1px solid rgba(26,107,107,0.08);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .funded-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--amber));
+    }
+
+    .funded-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .funded-card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--teal-light) 0%, rgba(26,107,107,0.12) 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .funded-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .funded-card-sub {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+
+    .funded-card p {
+      font-size: 16px;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    .funded-cta {
+      text-align: center;
+    }
+
+    /* ============================================================
+       9. TESTIMONIALS
+       ============================================================ */
+    .testimonials {
+      padding: 100px 0;
+      background-color: var(--white);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .testimonials-header .section-subtext {
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 40px;
+    }
+
+    .testimonial-card {
+      background-color: var(--off-white);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      border: 1px solid rgba(26,107,107,0.06);
+      transition: all var(--transition);
+      position: relative;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 18px;
+    }
+
+    .testimonial-star {
+      color: var(--amber);
+      font-size: 18px;
+    }
+
+    .testimonial-quote {
+      font-size: 15px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      position: relative;
+      padding-left: 20px;
+      border-left: 3px solid var(--teal-light);
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    .testimonial-location {
+      font-size: 13px;
+      color: var(--slate-light);
+    }
+
+    .testimonials-cta {
+      text-align: center;
+    }
+
+    .testimonials-cta a {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--amber);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap var(--transition);
+    }
+
+    .testimonials-cta a:hover {
+      gap: 12px;
+      color: var(--amber-hover);
+    }
+
+    /* ============================================================
+       10. SERVICE AREAS
+       ============================================================ */
+    .service-areas {
+      padding: 80px 0;
+      background-color: var(--off-white);
+    }
+
+    .service-areas-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .service-areas-header .section-subtext {
+      margin: 0 auto;
+    }
+
+    .locations-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background-color: var(--white);
+      border: 2px solid rgba(26,107,107,0.12);
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--teal);
+      transition: all var(--transition);
+    }
+
+    .location-badge:hover {
+      background-color: var(--teal);
+      color: var(--white);
+      border-color: var(--teal);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .location-badge svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .service-areas-note {
+      text-align: center;
+      font-size: 15px;
+      color: var(--slate-light);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       11. BOTTOM CTA
+       ============================================================ */
+    .bottom-cta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .bottom-cta::after {
+      content: '';
+      position: absolute;
+      bottom: -40%;
+      right: -15%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,130,10,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .bottom-cta .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .bottom-cta h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .bottom-cta p {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 36px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .bottom-cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       12. FOOTER
+       ============================================================ */
+    .footer {
+      background-color: #0f3d3d;
+      color: rgba(255,255,255,0.7);
+      padding: 64px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-brand .logo-text {
+      color: var(--white);
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      background-color: rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      transition: all var(--transition);
+    }
+
+    .footer-social a:hover {
+      background-color: var(--amber);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      transition: color var(--transition);
+    }
+
+    .footer-col ul a:hover {
+      color: var(--amber);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .footer-contact-item svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--amber);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 1024px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .founder .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .founder-image-area {
+        order: -1;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps-grid::before {
+        display: none;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-bar .container {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .top-bar-left {
+        justify-content: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid rgba(26,107,107,0.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .navbar .container {
+        position: relative;
+      }
+
+      .hero {
+        padding: 60px 0 80px;
+        text-align: center;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .trust-bar-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(26,107,107,0.08);
+      }
+
+      .trust-item:nth-child(odd) {
+        border-right: 1px solid rgba(26,107,107,0.08);
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .funded-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer-bottom {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .trust-bar-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-item {
+        border-right: none !important;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .btn {
+        padding: 12px 22px;
+        font-size: 14px;
+      }
+
+      .credential-tags {
+        justify-content: center;
+      }
+
+      .locations-grid {
+        gap: 10px;
+      }
+
+      .location-badge {
+        padding: 10px 18px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       1. TOP BAR
+       ============================================================ -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <a href="tel:8257600983">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          (825) 760-0983
+        </a>
+        <a href="mailto:info@yychomecareservices.ca">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@yychomecareservices.ca
+        </a>
+      </div>
+      <div class="top-bar-right">
+        <span class="top-bar-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>5.0 Google Rating &mdash; 67 Reviews</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       2. NAVIGATION
+       ============================================================ -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="logo-text">YYC <span>Homecare</span></div>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#funded-care">CDHCI Program</a>
+        <a href="#founder">About</a>
+        <a href="#">Blog</a>
+        <a href="#contact">Contact</a>
+        <div class="nav-cta">
+          <a href="#contact" class="btn btn-amber">Free Consultation</a>
+        </div>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       3. HERO SECTION
+       ============================================================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Accepting New Clients Across Alberta
+        </div>
+        <h1>Paramedic-Founded Home Care for Alberta Families</h1>
+        <p class="hero-sub">Clinically Informed. Personally Delivered.</p>
+        <p>Founded by Calgary EMS Paramedic Veerpal Kaur Dhatt, YYC Homecare brings clinical expertise directly to your home &mdash; across Calgary, Edmonton, Red Deer, Lethbridge, Medicine Hat, and Grande Prairie.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-amber">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Schedule a Free Consultation
+          </a>
+          <a href="#funded-care" class="btn btn-outline">Learn About Funded Care Options</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-placeholder">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Hero Image &mdash; Caregiver with Client</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. TRUST BAR
+       ============================================================ -->
+  <section class="trust-bar">
+    <div class="trust-bar-grid">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="trust-text">
+          5.0 &mdash; 67 Google Reviews
+          <small>Consistently rated 5 stars</small>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="trust-text">
+          Paramedic-Led Clinical Care
+          <small>Founded by EMS professionals</small>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <div class="trust-text">
+          AHS-Funded Options (CDHCI)
+          <small>Care at no direct cost for eligible Albertans</small>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="trust-text">
+          24/7 Support Across Alberta
+          <small>Available when you need us</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. SERVICES GRID
+       ============================================================ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-heading">Full-Spectrum Home Care Services</h2>
+        <p class="section-subtext">From daily personal care to complex clinical needs, our team provides comprehensive support tailored to your family's unique situation.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Card 1 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>In-Home Nursing Care</h3>
+          <p>Skilled nursing assessments, medication management, wound care, and clinical monitoring in the comfort of your home.</p>
+          <a href="#" class="service-link">Learn More <span>&rarr;</span></a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3>Dementia &amp; Alzheimer's Care</h3>
+          <p>Specialized memory care with trained caregivers who understand cognitive conditions and provide compassionate daily support.</p>
+          <a href="#" class="service-link">Learn More <span>&rarr;</span></a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Post-Hospital Care</h3>
+          <p>Smooth transitions from hospital to home with recovery-focused care plans designed to prevent readmission and speed healing.</p>
+          <a href="#" class="service-link">Learn More <span>&rarr;</span></a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          </div>
+          <h3>Personal Care Assistance</h3>
+          <p>Dignified help with bathing, grooming, dressing, mobility, and daily routines that support independence and well-being.</p>
+          <a href="#" class="service-link">Learn More <span>&rarr;</span></a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3>Palliative Care</h3>
+          <p>Comfort-focused care for individuals with life-limiting conditions, ensuring dignity, pain management, and family support throughout.</p>
+          <a href="#" class="service-link">Learn More <span>&rarr;</span></a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Respite Care</h3>
+          <p>Reliable temporary relief for family caregivers, giving you the break you deserve while your loved one receives quality care.</p>
+          <a href="#" class="service-link">Learn More <span>&rarr;</span></a>
+        </div>
+      </div>
+
+      <div class="services-all">
+        <a href="#">View All 18 Services <span>&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. FOUNDER SECTION
+       ============================================================ -->
+  <section class="founder" id="founder">
+    <div class="container">
+      <div class="founder-image-area">
+        <div class="founder-image">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Veerpal Kaur Dhatt &mdash; Founder</span>
+        </div>
+        <div class="founder-name-below">Veerpal Kaur Dhatt</div>
+        <div class="founder-title-below">Founder &amp; Clinical Director</div>
+      </div>
+
+      <div class="founder-content">
+        <span class="section-label">Our Story</span>
+        <h2>Founded by a Calgary EMS Paramedic</h2>
+        <p>With over a decade of clinical experience across hospitals, long-term care, and emergency medical services in Manitoba and Alberta, Veerpal brings a standard of care to home care that most companies cannot offer. Every care plan, every caregiver standard, and every clinical decision at YYC Homecare is informed by real frontline medical experience.</p>
+        <p>This isn't just a business &mdash; it's a commitment to ensuring every Alberta family has access to the same quality of care that Veerpal would demand for her own family.</p>
+        <div class="credential-tags">
+          <span class="credential-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Calgary EMS Paramedic
+          </span>
+          <span class="credential-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            10+ Years Clinical Experience
+          </span>
+          <span class="credential-tag">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Long-Term &amp; Hospital Care
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. HOW IT WORKS
+       ============================================================ -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="how-it-works-header">
+        <span class="section-label">Getting Started</span>
+        <h2 class="section-heading">How It Works</h2>
+        <p class="section-subtext">Getting started with YYC Homecare is straightforward. We handle the complexity so your family can focus on what matters.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Free Consultation</h3>
+          <p>We learn about your situation, needs, and goals through a no-obligation conversation with our care team.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Personalized Care Plan</h3>
+          <p>A custom plan built around your family's specific requirements, schedule, and preferences.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Ongoing Support</h3>
+          <p>Consistent, reliable care with regular check-ins and adjustments as needs change over time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. FUNDED CARE (CDHCI / VIP)
+       ============================================================ -->
+  <section class="funded-care" id="funded-care">
+    <div class="container">
+      <div class="funded-care-header">
+        <span class="section-label">Funded Programs</span>
+        <h2 class="section-heading">Government-Funded Care Options</h2>
+        <p class="section-subtext">Many Alberta families qualify for funded home care programs. We help you navigate the process from application to approval.</p>
+      </div>
+
+      <div class="funded-grid">
+        <div class="funded-card">
+          <div class="funded-card-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Client Directed Home Care</h3>
+          <div class="funded-card-sub">CDHCI &mdash; AHS Funded through Alberta Blue Cross</div>
+          <p>Eligible Albertans can receive home care services at no direct cost through the Client Directed Home Care Insurance program. AHS determines eligibility and funding levels, and we handle the rest &mdash; from caregiver matching to ongoing care management.</p>
+        </div>
+
+        <div class="funded-card">
+          <div class="funded-card-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#1A6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <h3>Veterans Independence Program</h3>
+          <div class="funded-card-sub">VIP &mdash; Veterans Affairs Canada</div>
+          <p>Supporting Canadian veterans with in-home care coverage through Veterans Affairs Canada. The VIP program helps veterans maintain their independence at home with funded personal care, housekeeping, and grounds maintenance services.</p>
+        </div>
+      </div>
+
+      <div class="funded-cta">
+        <a href="#contact" class="btn btn-amber">
+          Check Your Eligibility
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       9. TESTIMONIALS
+       ============================================================ -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="section-label">Client Stories</span>
+        <h2 class="section-heading">What Alberta Families Say</h2>
+        <p class="section-subtext">Real experiences from families we've had the privilege to support across the province.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+          </div>
+          <p class="testimonial-quote">The level of care my mother receives from YYC Homecare is exceptional. Knowing that the company was founded by a paramedic gives us so much confidence. The caregivers are professional, compassionate, and truly go above and beyond every single day.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RS</div>
+            <div>
+              <div class="testimonial-name">Rajinder S.</div>
+              <div class="testimonial-location">Calgary, AB</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+          </div>
+          <p class="testimonial-quote">After my husband's stroke, we didn't know where to turn. YYC Homecare walked us through the CDHCI program, handled all the paperwork, and had a caregiver in our home within days. The transition from hospital to home was seamless.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">ML</div>
+            <div>
+              <div class="testimonial-name">Margaret L.</div>
+              <div class="testimonial-location">Edmonton, AB</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+            <span class="testimonial-star">&#9733;</span>
+          </div>
+          <p class="testimonial-quote">Dad has dementia and finding reliable care was incredibly stressful. YYC Homecare matched us with a caregiver who understands his needs perfectly. The consistency and communication have been outstanding. We finally have peace of mind.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JT</div>
+            <div>
+              <div class="testimonial-name">James T.</div>
+              <div class="testimonial-location">Red Deer, AB</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonials-cta">
+        <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Read All 67 Reviews on Google <span>&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       10. SERVICE AREAS
+       ============================================================ -->
+  <section class="service-areas">
+    <div class="container">
+      <div class="service-areas-header">
+        <span class="section-label">Coverage</span>
+        <h2 class="section-heading">Serving Alberta Families Province-Wide</h2>
+        <p class="section-subtext">Wherever you are in Alberta, our team is ready to provide compassionate, clinically informed home care.</p>
+      </div>
+
+      <div class="locations-grid">
+        <span class="location-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Calgary
+        </span>
+        <span class="location-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Edmonton
+        </span>
+        <span class="location-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Red Deer
+        </span>
+        <span class="location-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Lethbridge
+        </span>
+        <span class="location-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Medicine Hat
+        </span>
+        <span class="location-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Grande Prairie
+        </span>
+      </div>
+
+      <p class="service-areas-note">Plus surrounding communities in each region</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. BOTTOM CTA
+       ============================================================ -->
+  <section class="bottom-cta" id="contact">
+    <div class="container">
+      <h2>Your Family Deserves Clinically Informed Care</h2>
+      <p>Schedule a free consultation with our team &mdash; no obligation, no pressure. Just a genuine conversation about how we can help.</p>
+      <div class="bottom-cta-buttons">
+        <a href="tel:8257600983" class="btn btn-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call (825) 760-0983
+        </a>
+        <a href="#" class="btn btn-white-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       12. FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-col footer-brand">
+          <div class="logo-text">YYC <span style="color: var(--amber);">Homecare</span></div>
+          <p>Paramedic-founded home care delivering clinically informed, personally delivered support to Alberta families. Because the people you love deserve better care.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" aria-label="Google Business">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#founder">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">In-Home Nursing</a></li>
+            <li><a href="#">Dementia Care</a></li>
+            <li><a href="#">Post-Hospital Care</a></li>
+            <li><a href="#">Personal Care</a></li>
+            <li><a href="#">Palliative Care</a></li>
+            <li><a href="#">Respite Care</a></li>
+            <li><a href="#">View All Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <div>
+              <a href="tel:8257600983" style="color: rgba(255,255,255,0.8);">(825) 760-0983</a><br>
+              <small>Available 24/7</small>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <a href="mailto:info@yychomecareservices.ca" style="color: rgba(255,255,255,0.8);">info@yychomecareservices.ca</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              Calgary, Alberta<br>
+              <small>Serving all of Alberta</small>
+            </div>
+          </div>
+          <div style="margin-top: 16px;">
+            <a href="#funded-care" style="color: var(--amber); font-size: 14px; font-weight: 600;">CDHCI Program Info &rarr;</a><br>
+            <a href="#" style="color: var(--amber); font-size: 14px; font-weight: 600; margin-top: 6px; display: inline-block;">Veterans (VIP) Program &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 YYC Homecare Services. All rights reserved.</span>
+        <span>
+          <a href="#" style="color: rgba(255,255,255,0.5); margin-right: 16px;">Privacy Policy</a>
+          <a href="#" style="color: rgba(255,255,255,0.5); margin-right: 16px;">Terms of Service</a>
+          <a href="#" style="color: rgba(255,255,255,0.5);">Accessibility</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MOBILE MENU SCRIPT
+       ============================================================ -->
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
